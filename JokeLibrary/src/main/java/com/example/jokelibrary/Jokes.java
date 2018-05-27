@@ -1,6 +1,5 @@
 package com.example.jokelibrary;
 
-import java.util.Random;
 
 public class Jokes {
 

@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.androidlibrary.jokesActivity;
-import com.example.jokelibrary.Jokes;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -47,10 +46,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-
-        Jokes jokes = new Jokes();
-        Intent intent = new Intent(this, jokesActivity.class);
-        intent.putExtra("piada",jokes.getJokes());
-        startActivity(intent);
+        new EndpointsAsyncTask().execute(this);
     }
 }
