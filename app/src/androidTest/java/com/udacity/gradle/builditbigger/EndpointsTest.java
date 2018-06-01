@@ -17,7 +17,7 @@ public class EndpointsTest extends AndroidTestCase{
 
     @Test
     public void testJoke() throws Exception{
-        String piada = new EndpointsAsyncTaskTeste().execute(InstrumentationRegistry.getContext()).get();
+        String piada = new EndpointsAsyncTask().execute(InstrumentationRegistry.getContext()).get();
         Assert.assertTrue(!piada.equals("") || piada != null );
     }
 }
