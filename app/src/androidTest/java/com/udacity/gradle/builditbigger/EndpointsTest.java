@@ -13,11 +13,16 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 
-public class EndpointsTest extends AndroidTestCase{
+public class EndpointsTest extends AndroidTestCase implements EndpointsAsyncTask.OnJokeRetrievedListener{
 
     @Test
     public void testJoke() throws Exception{
-        String piada = new EndpointsAsyncTask().execute(InstrumentationRegistry.getContext()).get();
-        Assert.assertTrue(!piada.equals("") || piada != null );
+        new EndpointsAsyncTask(this).execute(InstrumentationRegistry.getContext());
+
+    }
+
+    @Override
+    public void onJokeRetrieved(String joke) {
+        Assert.assertTrue(!joke.equals("") || joke != null );
     }
 }
